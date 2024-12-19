@@ -1,0 +1,8 @@
+{
+    "name": "MyShopJson",
+    "tuples_limit": 3,
+    "structure": {
+        "CATALOGUE": ["BRAND", "YEAR", "THING", "SIZE"],
+        "INSTOCK": ["BRAND", "QUANTITY"]
+    }
+}
