@@ -77,7 +77,7 @@ bool ISVALUE(const TableJson& json_table, const string& table, const string& col
    if (!s.empty()){
     int cntCsv = CSVCOUNT(json_table, table);
         for (size_t i = 1; i <= cntCsv; i++) { // просматриваем все созданные файлы csv
-            string filePath = "/home/yyandh1/localrepos1/practice3.1/" + json_table.Name + "/" + table + "/" + to_string(i) + ".csv";
+            string filePath = "/home/yyandh1/localrepos1/practice3.2/" + json_table.Name + "/" + table + "/" + to_string(i) + ".csv";
             rapidcsv::Document doc(filePath); // открываем файл
             int columnIndex = doc.GetColumnIdx(column); // считываем индекс искомой колонки
             size_t cntRow = doc.GetRowCount(); // считываем количество строк в файле
@@ -104,12 +104,12 @@ bool ISSAME(const TableJson& json_table, const string& table1, const string& tab
 
         for (size_t iCsv = 1; iCsv <= cntCsv1; iCsv++) {
             for (size_t icsv = 1; icsv <= cntCsv2; icsv++){
-                string filePath1 = "/home/yyandh1/localrepos1/practice3.1/" + json_table.Name + "/" + table1 + "/" + to_string(iCsv) + ".csv";
+                string filePath1 = "/home/yyandh1/localrepos1/practice3.2/" + json_table.Name + "/" + table1 + "/" + to_string(iCsv) + ".csv";
                 rapidcsv::Document doc1(filePath1); // открываем файл
                 int columnIndex1 = doc1.GetColumnIdx(column1); // считываем индекс искомой колонки
                 size_t cntRow1 = doc1.GetRowCount(); // считываем количество строк в файле
 
-                string filePath2 = "/home/yyandh1/localrepos1/practice3.1/" + json_table.Name + "/" + table2 + "/" + to_string(icsv) + ".csv";
+                string filePath2 = "/home/yyandh1/localrepos1/practice3.2/" + json_table.Name + "/" + table2 + "/" + to_string(icsv) + ".csv";
                 rapidcsv::Document doc2(filePath2); // открываем файл
                 size_t cntRow2 = doc2.GetRowCount(); // считываем количество строк в файле
                 int columnIndex2 = doc2.GetColumnIdx(column2); // считываем индекс искомой колонки
@@ -146,7 +146,7 @@ void CROSSJOIN(const TableJson& json_table, const string& table1, const string& 
 
     // Перебор файлов из таблицы 1
     for (size_t iCsv1 = 1; iCsv1 <= csvCNT1; ++iCsv1) {
-        string filePath1 = "/home/yyandh1/localrepos1/practice3.1/MyShopJson/CATALOGUE/" + to_string(iCsv1) + ".csv";
+        string filePath1 = "/home/yyandh1/localrepos1/practice3.2/MyShopJson/CATALOGUE/" + to_string(iCsv1) + ".csv";
         rapidcsv::Document doc1(filePath1); 
 
         int columnIndex1 = doc1.GetColumnIdx(column1);
@@ -163,7 +163,7 @@ void CROSSJOIN(const TableJson& json_table, const string& table1, const string& 
 
         // Перебор файлов из таблицы 2
         for (size_t iCsv2 = 1; iCsv2 <= csvCNT2; ++iCsv2) {
-            string filePath2 = "/home/yyandh1/localrepos1/practice3.1/MyShopJson/INSTOCK/" + to_string(iCsv2) + ".csv";
+            string filePath2 = "/home/yyandh1/localrepos1/practice3.2/MyShopJson/INSTOCK/" + to_string(iCsv2) + ".csv";
             rapidcsv::Document doc2(filePath2); 
 
             int columnIndex2 = doc2.GetColumnIdx(column2);

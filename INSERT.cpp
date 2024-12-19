@@ -12,7 +12,7 @@ bool EXISTTAB(const string& tableName, Node* tableHead) {
 }
 //Функция которая проверяет состояние таблицы
 bool ISLOCK(const string& tableName, const string& schemeName) {
-    string baseDir = "/home/yyandh1/localrepos1/practice3.1/" + schemeName + "/" + tableName;
+    string baseDir = "/home/yyandh1/localrepos1/practice3.2/" + schemeName + "/" + tableName;
     string lockFile = baseDir + "/" + (tableName + "_lock.txt");
 
     if (!fs::exists(lockFile)) {
@@ -33,7 +33,7 @@ bool ISLOCK(const string& tableName, const string& schemeName) {
 }
 //Функция, которая запирает или отпирает таблицу в зависимости от ее состояния
 void LOCK(const string& tableName, const string& schemeName) {
-    string baseDir = "/home/yyandh1/localrepos1/practice3.1/" + schemeName + "/" + tableName;
+    string baseDir = "/home/yyandh1/localrepos1/practice3.2/" + schemeName + "/" + tableName;
     string lockFile = baseDir + "/" + (tableName + "_lock.txt");
 
     if (!fs::exists(lockFile)) {
@@ -86,7 +86,7 @@ int CSVCOUNT(const TableJson& json_table, const string& tableName) {
     int csvNumber = 1;
 
     while (true) {
-        string csvFile = "/home/yyandh1/localrepos1/practice3.1/" + json_table.Name + "/" + tableName + "/" + (to_string(csvNumber) + ".csv");
+        string csvFile = "/home/yyandh1/localrepos1/practice3.2/" + json_table.Name + "/" + tableName + "/" + (to_string(csvNumber) + ".csv");
 
         // Проверяем, существует ли файл
         ifstream fileIn(csvFile);
@@ -171,7 +171,7 @@ void INSERT(const string& command, TableJson json_table) {
     LOCK(tableName, json_table.Name);
 
     int currentPK;
-    string PKFile = "/home/yyandh1/localrepos1/practice3.1/" + json_table.Name + "/" + tableName + "/" + (tableName + "_pk_sequence.txt");
+    string PKFile = "/home/yyandh1/localrepos1/practice3.2/" + json_table.Name + "/" + tableName + "/" + (tableName + "_pk_sequence.txt");
     ifstream fileIn(PKFile);
     if (!fileIn.is_open()) {
         cerr << "Не удалось открыть файл.\n";
@@ -193,7 +193,7 @@ void INSERT(const string& command, TableJson json_table) {
     // Логика для определения количества существующих файлов
     int csvNumber = CSVCOUNT(json_table, tableName);
 
-    string baseDir = "/home/yyandh1/localrepos1/practice3.1/" + json_table.Name;
+    string baseDir = "/home/yyandh1/localrepos1/practice3.2/" + json_table.Name;
 
     // Используем новую функцию для создания нового CSV файла, если нужно
     CSVNEW(baseDir, tableName, csvNumber, json_table);

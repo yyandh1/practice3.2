@@ -85,7 +85,7 @@ bool DELROWS(const string& tableName, const string& column, const string& value,
 
     // Ищем все CSV файлы
     while (true) {
-        fs::path filePath = fs::path("/home/yyandh1/localrepos1/practice3.1") / json_table.Name / tableName / (to_string(amountCsv) + ".csv");
+        fs::path filePath = fs::path("/home/yyandh1/localrepos1/practice3.2") / json_table.Name / tableName / (to_string(amountCsv) + ".csv");
         ifstream file(filePath);
         if (!file.is_open()) {
             break;
@@ -96,7 +96,7 @@ bool DELROWS(const string& tableName, const string& column, const string& value,
 
     // Просматриваем все CSV файлы
     for (size_t iCsv = 1; iCsv < amountCsv; iCsv++) {
-        string filePath = "/home/yyandh1/localrepos1/practice3.1/" + json_table.Name + "/" + tableName + "/" + (to_string(iCsv) + ".csv");
+        string filePath = "/home/yyandh1/localrepos1/practice3.2/" + json_table.Name + "/" + tableName + "/" + (to_string(iCsv) + ".csv");
         rapidcsv::Document doc(filePath);
 
         int columnIndex = doc.GetColumnIdx(column);
